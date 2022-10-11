@@ -1,5 +1,6 @@
 from mongoengine import Document
-from mongoengine import DateTimeField, StringField, IntField, ReferenceField, ListField, ValidationError
+from mongoengine import mongoengine
+from mongoengine import * 
 from .Recipe import Recipe 
 from .User import User
 
@@ -14,5 +15,5 @@ class Coffee(Document):
   roastDate = DateTimeField()
 
   user = ReferenceField(User)
-  recipes = ReferenceField(Recipe)
+  recipes = ReferenceField(Recipe, reverse_delete_rule=mongoengine.CASCADE)
 
