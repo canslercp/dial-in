@@ -10,9 +10,9 @@ def get_database():
 
   # create a connection using MongoClient
   client = MongoClient(CONNECTION_STRING)
-
+  db = client['dial_in']
   # create the database 
-  return client['dial_in']
+  return db
 
 # allows many files to reuse the function get_database()
 if __name__ == "__main__":
